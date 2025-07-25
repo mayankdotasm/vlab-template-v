@@ -506,6 +506,8 @@ input[type="radio"] {
 
 /* Quiz */
 #quiz {
+  justify-items: center;
+  align-items: center;
   text-align: center;
   border-radius: 10px;
   padding: 20px;
@@ -527,6 +529,8 @@ input[type="radio"] {
   border-radius: 8px;
   margin-bottom: 20px;
   border: 1px solid #b5d9f7;
+  max-width: 500px;
+  
 }
 
 #quiz-instructions h3 {
@@ -536,9 +540,9 @@ input[type="radio"] {
 }
 
 #quiz-instructions ul {
+  list-style-type:decimal;
   padding-left: 20px;
   margin: 10px 0;
-  list-style-type: disc;
 }
 
 #quiz-instructions li {
