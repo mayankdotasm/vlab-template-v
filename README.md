@@ -32,14 +32,11 @@ vlab-template-v/
 
 ### 1️⃣ Clone the Repository
 
-```sh
-git clone https://github.com/mayankdotasm/vlab-template-v.git
-cd vlab-template-v
-```
+### 1️⃣ Download ZIP
 
-### 2️⃣ Open in Browser
+[Download the latest release as ZIP](https://github.com/mayankdotasm/vlab-template-v/archive/refs/heads/main.zip)
 
-Simply open `index.html` in any modern web browser.
+### 2️⃣ Extract & Open
 
-
-
+- Extract the downloaded ZIP file to your preferred location.
+- Open `index.html` in any modern web browser.
