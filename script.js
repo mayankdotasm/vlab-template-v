@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
   backToTopBtn.onclick = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  document.getElementById("start-quiz-btn").addEventListener("click", () => {
+  document.getElementById("quiz-instructions").style.display = "none";
+  document.getElementById("quiz-content").style.display = "block";
+});
 });
 
 // Object to store references to different topic sections by their IDs
@@ -121,169 +126,142 @@ document.querySelectorAll(".copy-button").forEach((button) => {
 
 // Quiz Logic
 const questions = [
-    {
-      question: " Q1) Which of the following is/are valid searching algorithms?",
-      choices: ["Linear Search", "Bubble Sort", "Binary Search", "Quick Sort"],
-      correctAnswers: [0, 2], // Correct answers are indexes 0 and 2 (multiple answers possible)
-    },
-    {
-      question: " Q2) What is/are the time complexity of linear search?",
-      choices: ["O(log n)", "O(n)", "O(n^2)", "O(1)"],
-      correctAnswers: [1], // Correct answer is index 1 (single answer)
-    },
-  ];
-  
-  let currentQuestionIndex = 0;
-  let score = 0;
-  let userAnswers = []; // Array to store user answers as an array of selected indexes
-  
-  const questionElement = document.getElementById("question");
-  const choicesContainer = document.getElementById("choices");
-  const saveButton = document.getElementById("save-btn");
-  const nextButton = document.getElementById("next-btn");
-  const retakeButton = document.getElementById("retake-btn");
-  const quizReport = document.getElementById("quiz-report");
-  
-  function showQuestion() {
-      let currentQuestion = questions[currentQuestionIndex];
-      questionElement.textContent = currentQuestion.question;
-      choicesContainer.innerHTML = "";
-  
-      currentQuestion.choices.forEach((choice, index) => {
-          const button = document.createElement("button");
-          button.textContent = choice;
-          button.classList.add("choice");
-          button.addEventListener("click", () => toggleSelection(index)); // Listen for user selection
-          choicesContainer.appendChild(button);
-      });
-  
-      saveButton.style.display = "block"; // Show the save button
-      nextButton.style.display = "none"; // Hide the next button initially
-      retakeButton.style.display = "none"; // Hide the retake button
-      saveButton.disabled = true; // Disable save button initially
-  }
-  
-  function toggleSelection(selectedIndex) {
-      // Toggle selection for multiple answers
-      if (!userAnswers[currentQuestionIndex]) {
-          userAnswers[currentQuestionIndex] = [];
-      }
-  
-      const answerIndex = userAnswers[currentQuestionIndex].indexOf(selectedIndex);
-  
-      if (answerIndex > -1) {
-          // Remove the selection if already selected
-          userAnswers[currentQuestionIndex].splice(answerIndex, 1);
-      } else {
-          // Add the selection
-          userAnswers[currentQuestionIndex].push(selectedIndex);
-      }
-  
-      // Highlight selected buttons
-      const choiceButtons = document.querySelectorAll(".choice");
-      choiceButtons.forEach((button, index) => {
-          if (userAnswers[currentQuestionIndex].includes(index)) {
-              button.style.backgroundColor = "#4285F4"; // Selected answer color
-              button.style.color = "white";
-          } else {
-              button.style.backgroundColor = "#f1f1f1"; // Reset other button colors
-              button.style.color = "black";
-          }
-      });
-  
-      // Enable the Save button if there is at least one selection
-      saveButton.disabled = userAnswers[currentQuestionIndex].length === 0;
-  }
-  
-  function saveAnswer() {
-      // Show the Next button once the answer is saved
-      nextButton.style.display = "block";
-      saveButton.style.display = "none"; // Hide the Save button
-      saveButton.disabled = true; // Disable the Save button after saving the answer
-  }
-  
-  function checkAnswer() {
-      const correctAnswers = questions[currentQuestionIndex].correctAnswers;
-      const userAnswer = userAnswers[currentQuestionIndex];
-  
-      // Check if the user's selected answers match the correct ones
-      if (arraysEqual(correctAnswers, userAnswer)) {
-          score++; // Increment score if the answer is correct
-      }
-  
-      nextButton.style.display = "none"; // Hide the Next button
-      if (currentQuestionIndex < questions.length - 1) {
-          // Move to the next question
-          currentQuestionIndex++;
-          showQuestion();
-      } else {
-          showResults();
-      }
-  }
-  
-  function arraysEqual(a, b) {
-      return a.length === b.length && a.every((val, index) => val === b[index]);
-  }
-  
-  function showResults() {
-      questionElement.textContent = `Quiz Completed! Your Score: ${score} / ${questions.length}`;
-      choicesContainer.innerHTML = "";
-      saveButton.style.display = "none";
-      nextButton.style.display = "none";
-      retakeButton.style.display = "block";
-  
-      // Display quiz report
-      displayQuizReport();
-  }
-  
-  function displayQuizReport() {
-      quizReport.style.display = "block"; // Show the report section
-      quizReport.innerHTML = ""; // Clear previous report
-      
-      const reporttitle = document.createElement("h3");
-      reporttitle.textContent = "Quiz Report"; // Set the title
-      quizReport.appendChild(reporttitle);
+  {
+    question: "Q1) Which of the following is/are valid searching algorithms?",
+    choices: ["Linear Search", "Bubble Sort", "Binary Search", "Quick Sort"],
+    correctAnswers: [0, 2],
+  },
+  {
+    question: "Q2) What is/are the time complexity of linear search?",
+    choices: ["O(log n)", "O(n)", "O(n^2)", "O(1)"],
+    correctAnswers: [1],
+  },
+];
 
-      questions.forEach((question, index) => {
-          const userAnswer = userAnswers[index] || [];
-          const correctAnswer = question.correctAnswers;
-          const questionDiv = document.createElement("div");
-          questionDiv.classList.add("quiz-report-question");
-  
-          const questionText = document.createElement("p");
-          questionText.textContent = `${question.question}`;
-          questionDiv.appendChild(questionText);
-  
-          const choicesList = document.createElement("ul");
-          question.choices.forEach((choice, i) => {
-              const choiceItem = document.createElement("li");
-              const isSelected = userAnswer.includes(i);
-              const isCorrect = correctAnswer.includes(i);
-  
-              // Highlight correct and incorrect answers
-              if (isSelected) {
-                  choiceItem.textContent = choice;
-                  choiceItem.style.backgroundColor = isCorrect ? "green" : "red";
-                  choiceItem.style.color = "white";
-              }
-  
-              choicesList.appendChild(choiceItem);
-          });
-  
-          questionDiv.appendChild(choicesList);
-          quizReport.appendChild(questionDiv);
-      });
-  }
-  
-  retakeButton.addEventListener("click", () => {
-      currentQuestionIndex = 0;
-      score = 0;
-      userAnswers = [];
-      quizReport.style.display = "none"; // Hide the report on retake
-      showQuestion();
+let currentQuestionIndex = 0;
+let score = 0;
+let userAnswers = [];
+
+const questionElement = document.getElementById("question");
+const choicesContainer = document.getElementById("choices");
+const nextButton = document.getElementById("next-btn");
+const retakeButton = document.getElementById("retake-btn");
+const quizReport = document.getElementById("quiz-report");
+
+function showQuestion() {
+  let currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
+  choicesContainer.innerHTML = "";
+  userAnswers[currentQuestionIndex] = [];
+
+  currentQuestion.choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.textContent = choice;
+    button.classList.add("choice");
+    button.addEventListener("click", () => toggleSelection(index));
+    choicesContainer.appendChild(button);
   });
-  
-  saveButton.addEventListener("click", saveAnswer);
-  nextButton.addEventListener("click", checkAnswer);
-  
+
+  nextButton.disabled = true; // Disable Next until an answer is selected
+  nextButton.style.display = "block";
+  retakeButton.style.display = "none";
+}
+
+function toggleSelection(selectedIndex) {
+  if (!userAnswers[currentQuestionIndex]) {
+    userAnswers[currentQuestionIndex] = [];
+  }
+  const selected = userAnswers[currentQuestionIndex];
+  const idx = selected.indexOf(selectedIndex);
+
+  if (idx > -1) {
+    selected.splice(idx, 1);
+  } else {
+    selected.push(selectedIndex);
+  }
+
+  // Update button styles
+  document.querySelectorAll(".choice").forEach((btn, index) => {
+    if (selected.includes(index)) {
+      btn.style.backgroundColor = "#4285F4";
+      btn.style.color = "white";
+    } else {
+      btn.style.backgroundColor = "#f1f1f1";
+      btn.style.color = "black";
+    }
+  });
+
+  nextButton.disabled = selected.length === 0;
+}
+
+function checkAnswer() {
+  const correctAnswers = questions[currentQuestionIndex].correctAnswers;
+  const userAnswer = userAnswers[currentQuestionIndex];
+
+  if (arraysEqual(correctAnswers, userAnswer)) {
+    score++;
+  }
+
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function arraysEqual(a, b) {
+  return a.length === b.length && a.every((val) => b.includes(val));
+}
+
+function showResults() {
+  questionElement.textContent = `Quiz Completed! Your Score: ${score} / ${questions.length}`;
+  choicesContainer.innerHTML = "";
+  nextButton.style.display = "none";
+  retakeButton.style.display = "block";
+  displayQuizReport();
+}
+
+function displayQuizReport() {
+  quizReport.style.display = "block";
+  quizReport.innerHTML = "<h3>Quiz Report</h3>";
+
+  questions.forEach((q, index) => {
+    const userAnswer = userAnswers[index] || [];
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("quiz-report-question");
+
+    const questionText = document.createElement("p");
+    questionText.textContent = q.question;
+    questionDiv.appendChild(questionText);
+
+    const choicesList = document.createElement("ul");
+    q.choices.forEach((choice, i) => {
+      const choiceItem = document.createElement("li");
+      const isSelected = userAnswer.includes(i);
+      const isCorrect = q.correctAnswers.includes(i);
+
+      if (isSelected) {
+        choiceItem.style.backgroundColor = isCorrect ? "green" : "red";
+        choiceItem.style.color = "white";
+      }
+      choiceItem.textContent = choice;
+      choicesList.appendChild(choiceItem);
+    });
+
+    questionDiv.appendChild(choicesList);
+    quizReport.appendChild(questionDiv);
+  });
+}
+
+retakeButton.addEventListener("click", () => {
+  currentQuestionIndex = 0;
+  score = 0;
+  userAnswers = [];
+  quizReport.style.display = "none";
   showQuestion();
+});
+
+nextButton.addEventListener("click", checkAnswer);
+
+showQuestion();
