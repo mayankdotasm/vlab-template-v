@@ -11,6 +11,43 @@ document.addEventListener("DOMContentLoaded", function () {
       header.classList.remove("scrolled");
     }
   });
+
+  // sticky nav 
+   const navWrapper = document.getElementById("navWrapper");
+  const trigger = document.querySelector(".sticky-trigger");
+
+  const observer = new IntersectionObserver(
+      (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        navWrapper.classList.add("sticky-nav-wrapper");
+      } else {
+        navWrapper.classList.remove("sticky-nav-wrapper");
+      }
+    });
+  },
+  {
+    rootMargin: "-60px 0px 0px 0px", // triggers earlier, avoids flicker
+    threshold: 0
+  }
+  );
+
+  observer.observe(trigger);
+
+  // back to top logic
+  const backToTopBtn = document.getElementById("backToTop");
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  backToTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 });
 
 // Object to store references to different topic sections by their IDs

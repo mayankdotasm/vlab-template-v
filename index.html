@@ -1,286 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="brief description" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add your V-Lab Title here</title>
-    <link rel="icon" href="images/vlab-logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/harmonic16-dark.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  </head>
 
-  <body>
-    <header class="header">
-      <div class="logo-container">
-        <div class="logo">
-          <a
-            href="https://www.vlab.andcollege.du.ac.in"
-            rel="noopener"
-            target="_blank"
-          >
-            <img class="logo-img" src="images/logo.png" alt="VLab" />
-          </a>
-        </div>
-        <h1 class="vlab">V-Lab@ANDC</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="brief description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add your V-Lab Title here</title>
+  <link rel="icon" href="images/vlab-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/harmonic16-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <div class="logo">
+        <a href="https://www.vlab.andcollege.du.ac.in" rel="noopener" target="_blank">
+          <img class="logo-img" src="images/logo.png" alt="VLab" />
+        </a>
       </div>
-
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <nav class="nav-menu" id="small-screen">
-        <div class="close-btn" onclick="toggleMenu()">✖</div>
-        <a href="https://www.vlab.andcollege.du.ac.in">Home</a>
-        <a href="https://www.vlab.andcollege.du.ac.in#labs_section">Labs</a>
-        <a href="https://www.vlab.andcollege.du.ac.in#team">Team</a>
-        <a href="https://www.andcollege.du.ac.in">College Website</a>
-      </nav>
-    </header>
-
-    <div class="yourvlabtitle">
-      <h1>your vlab title</h1>
+      <h1 class="vlab">V-Lab@ANDC</h1>
     </div>
 
-    <div class="pageview">
-      <div class="navigation-wrapper">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="nav-menu" id="small-screen">
+      <div class="close-btn" onclick="toggleMenu()">✖</div>
+      <a href="https://www.vlab.andcollege.du.ac.in">Home</a>
+      <a href="https://www.vlab.andcollege.du.ac.in#labs_section">Labs</a>
+      <a href="https://www.vlab.andcollege.du.ac.in#team">Team</a>
+      <a href="https://www.andcollege.du.ac.in">College Website</a>
+    </nav>
+  </header>
+<button id="backToTop" title="Go to top" aria-label="Back to Top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M11 18.5c-.4-.1-1.3-.9-5.5-5.2-3.4-3.4-5.1-5.2-5.2-5.5-.2-.5-.2-1.0 0-1.4.3-.9 1.5-1.4 2.3-1 .1 0 2.2 2.1 4.7 4.5 2.5 2.5 4.5 4.5 4.7 4.5.3.1-.3.7 6.8-6.3 2.8-2.8 3-2.9 3.8-2.8 1.1.2 1.8 1.4 1.4 2.5-.2.5-10.1 10.3-10.7 10.6-.6.3-1.6.4-2.3.1z"/>
+  </svg>
+</button>
+
+
+
+  <div class="yourvlabtitle">
+    <h1>your vlab title</h1>
+  </div>
+
+  <div class="pageview">
+    <div class="sticky-trigger"></div>
+
+    <div class="navigation-wrapper" id="navWrapper">
       <nav class="navigation">
         <div class="link" onclick="switchContent('aim')">
           <img class="icon" src="images/Aim_img.png" alt="Aim" />
           <span>Aim</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('theory')">
           <img class="icon" src="images/theory_img.png" alt="THEORY" />
           <span>Theory & Application</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('procedure')">
           <img class="icon" src="images/procedure_img.png" alt="PROCEDURE" />
           <span>Procedure</span>
-         </div>
+        </div>
 
-       <div class="link" onclick="switchContent('practice')">
+        <div class="link" onclick="switchContent('practice')">
           <img class="icon" src="images/practice_img.png" alt="PRACTICE" />
           <span>Practice</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('code')">
           <img class="icon" src="images/code_img.png" alt="CODES" />
           <span>Codes</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('result')">
           <img class="icon" src="images/result_img.png" alt="RESULT" />
           <span>Result</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('quiz')">
           <img class="icon" src="images/quiz_img.png" alt="QUIZ" />
           <span>Quiz</span>
-         </div>
+        </div>
 
         <div class="link" onclick="switchContent('references')">
           <img class="icon" src="images/reference_img.png" alt="REFERENCE" />
           <span>References</span>
-         </div>
-       <div class="link" onclick="switchContent('tnt')">
+        </div>
+        <div class="link" onclick="switchContent('tnt')">
           <img class="icon" src="images/tnt_img.png" alt="TEAM & TOOLS" />
           <span>Team & Tools</span>
-       </div>
+        </div>
       </nav>
+    </div>
+
+    <section class="main_practical">
+      <!-- Aim -->
+      <div class="container" id="aim">
+        <div class="title">Aim</div>
+        <div class="content">
+          <p>The aim of your Virtual lab</p>
+        </div>
       </div>
 
-      <section class="main_practical">
-        <!-- Aim -->
-        <div class="container" id="aim">
-          <div class="title">Aim</div>
-          <div class="content">
-            <p>The aim of your Virtual lab</p>
-          </div>
+      <!-- Theory & Applications -->
+      <div class="container" id="theory">
+        <div class="title">Theory & Applications</div>
+        <div class="content">
+          <p>
+            This section covers the fundamental theories and applications of
+            the concept.
+          </p>
+
+          <span>Key Concepts</span>
+          <ul>
+            <li>Fundamentals of Data Structures</li>
+            <li>
+              Algorithms and Their Applications
+              <ul>
+                <li>Sorting Algorithms</li>
+                <li>Searching Algorithms</li>
+              </ul>
+            </li>
+            <li>Time Complexity Analysis</li>
+          </ul>
+
+          <span>Applications in Real World</span>
+          <ol>
+            <li>Application of Sorting Algorithms in Search Engines</li>
+            <li>Machine Learning Algorithms in Predictive Analytics</li>
+            <li>Data Structures in Web Development</li>
+          </ol>
+
+        </div>
+      </div>
+
+      <!-- Procedure -->
+      <div class="container" id="procedure">
+        <div class="title">Procedure</div>
+        <div class="content">
+          <p>
+            This section provides the steps and procedure for implementing the
+            concept discussed above.
+          </p>
+
+          <span>Steps for Sorting Algorithms</span>
+          <ol>
+            <li>Choose the appropriate sorting algorithm based on data</li>
+            <li>Apply the sorting algorithm to the dataset</li>
+            <li>Analyze the time complexity and performance</li>
+          </ol>
+
+          <span>Steps for Implementing Search Algorithms</span>
+          <ul>
+            <li>Identify the data structure to be used</li>
+            <li>
+              Choose the best search algorithm (e.g., Linear Search, Binary
+              Search)
+            </li>
+            <li>Test the algorithm on various datasets</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Code -->
+      <div class="container" id="code">
+        <div class="title">Code</div>
+        <p>Example programs</p>
+        <div class="switch-container">
+          <input class="togswt" type="radio" id="cppRadio" name="codeSwitch" checked />
+          <label for="cppRadio">C++</label>
+
+          <input class="togswt" type="radio" id="pythonRadio" name="codeSwitch" />
+          <label for="pythonRadio">Python</label>
         </div>
 
-        <!-- Theory & Applications -->
-        <div class="container" id="theory">
-          <div class="title">Theory & Applications</div>
-          <div class="content">
-            <p>
-              This section covers the fundamental theories and applications of
-              the concept.
-            </p>
-
-            <span>Key Concepts</span>
-            <ul>
-              <li>Fundamentals of Data Structures</li>
-              <li>
-                Algorithms and Their Applications
-                <ul>
-                  <li>Sorting Algorithms</li>
-                  <li>Searching Algorithms</li>
-                </ul>
-              </li>
-              <li>Time Complexity Analysis</li>
-            </ul>
-
-            <span>Applications in Real World</span>
-            <ol>
-              <li>Application of Sorting Algorithms in Search Engines</li>
-              <li>Machine Learning Algorithms in Predictive Analytics</li>
-              <li>Data Structures in Web Development</li>
-            </ol>
-
-          </div>
-        </div>
-
-        <!-- Procedure -->
-        <div class="container" id="procedure">
-          <div class="title">Procedure</div>
-          <div class="content">
-            <p>
-              This section provides the steps and procedure for implementing the
-              concept discussed above.
-            </p>
-
-            <span>Steps for Sorting Algorithms</span>
-            <ol>
-              <li>Choose the appropriate sorting algorithm based on data</li>
-              <li>Apply the sorting algorithm to the dataset</li>
-              <li>Analyze the time complexity and performance</li>
-            </ol>
-
-            <span>Steps for Implementing Search Algorithms</span>
-            <ul>
-              <li>Identify the data structure to be used</li>
-              <li>
-                Choose the best search algorithm (e.g., Linear Search, Binary
-                Search)
-              </li>
-              <li>Test the algorithm on various datasets</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Code -->
-        <div class="container" id="code">
-          <div class="title">Code</div>
-          <p>Example programs</p>
-          <div class="switch-container">
-            <input
-              class="togswt"
-              type="radio"
-              id="cppRadio"
-              name="codeSwitch"
-              checked
-            />
-            <label for="cppRadio">C++</label>
-
-            <input
-              class="togswt"
-              type="radio"
-              id="pythonRadio"
-              name="codeSwitch"
-            />
-            <label for="pythonRadio">Python</label>
-          </div>
-
-          <div class="code-blocks">
-            <div id="cppCode" class="code-block active">
-              <div class="code-content">
-                <pre><code class="language-cpp">// C++ Code Example</code></pre>
-                <button class="copy-button">Copy</button>
-              </div>
+        <div class="code-blocks">
+          <div id="cppCode" class="code-block active">
+            <div class="code-content">
+              <pre><code class="language-cpp">// C++ Code Example</code></pre>
+              <button class="copy-button">Copy</button>
             </div>
-            <div id="pythonCode" class="code-block">
-              <div class="code-content">
-                <pre><code class="language-python"># Python Code Example</code></pre>
-                <button class="copy-button">Copy</button>
-              </div>
+          </div>
+          <div id="pythonCode" class="code-block">
+            <div class="code-content">
+              <pre><code class="language-python"># Python Code Example</code></pre>
+              <button class="copy-button">Copy</button>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Practice -->
-        <div class="container" id="practice">
-          <div class="title">Practice</div>
-          <div class="content"></div>
-        </div>
+      <!-- Practice -->
+      <div class="container" id="practice">
+        <div class="title">Practice</div>
+        <div class="content"></div>
+      </div>
 
-        <!-- Results -->
-        <div class="container" id="result">
-          <div class="title">Result</div>
-          <div class="content">
-            <p>Result of your vlab</p>
-          </div>
+      <!-- Results -->
+      <div class="container" id="result">
+        <div class="title">Result</div>
+        <div class="content">
+          <p>Result of your vlab</p>
         </div>
+      </div>
 
-        <!-- Quiz -->
-        <div class="container" id="quiz">
-          <div class="title">Quiz</div>
-          <p id="question"></p>
-          <div id="choices" class="choices"></div>
-          <button id="save-btn" class="save-button">Save</button>
-          <button id="next-btn" class="next-button" style="display: none">
-            Next
-          </button>
-          <button id="retake-btn" style="display: none">Retake Quiz</button>
-          <div id="quiz-report" style="display: none"></div>
-          <!-- Section to display quiz report -->
-        </div>
+      <!-- Quiz -->
+      <div class="container" id="quiz">
+        <div class="title">Quiz</div>
+        <p id="question"></p>
+        <div id="choices" class="choices"></div>
+        <button id="save-btn" class="save-button">Save</button>
+        <button id="next-btn" class="next-button" style="display: none">
+          Next
+        </button>
+        <button id="retake-btn" style="display: none">Retake Quiz</button>
+        <div id="quiz-report" style="display: none"></div>
+        <!-- Section to display quiz report -->
+      </div>
 
-        <!-- References -->
-        <div class="container" id="references">
-          <div class="title">References</div>
-          <div class="content">
-            <ul class="ref-list">
-              <li>
-                <span> refernce 1 </span>
-              </li>
-              <li>
-                <span> refernce 2 </span>
-              </li>
-            </ul>
-          </div>
+      <!-- References -->
+      <div class="container" id="references">
+        <div class="title">References</div>
+        <div class="content">
+          <ul class="ref-list">
+            <li>
+              <span> refernce 1 </span>
+            </li>
+            <li>
+              <span> refernce 2 </span>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <!-- Team & Tools -->
-        <div class="container" id="tnt">
-          <div class="title">Team & Tools</div>
-          <div class="content">
-            <h3>Students</h3>
-            <ul class="ref-list">
-              <li>
-                <a href="profile url if you have" rel="noopener" target="_blank"
-                  ><span>Name and Course of each team member</span></a
-                >
-              </li>
-            </ul>
-            <h3>Mentors</h3>
-            <ul class="ref-list">
-              <li><span> Mentor Name</span></li>
-            </ul>
-            <h3>Tools Used</h3>
-            <ul class="tools-list">
-              <li>
-                <span> Add tools used here </span>
-              </li>
-              <li>
-                <span>Vanilla HTML, CSS, JS - for creating the web page</span>
-              </li>
-            </ul>
-          </div>
+      <!-- Team & Tools -->
+      <div class="container" id="tnt">
+        <div class="title">Team & Tools</div>
+        <div class="content">
+          <h3>Students</h3>
+          <ul class="ref-list">
+            <li>
+              <a href="profile url if you have" rel="noopener" target="_blank"><span>Name and Course of each team
+                  member</span></a>
+            </li>
+          </ul>
+          <h3>Mentors</h3>
+          <ul class="ref-list">
+            <li><span> Mentor Name</span></li>
+          </ul>
+          <h3>Tools Used</h3>
+          <ul class="tools-list">
+            <li>
+              <span> Add tools used here </span>
+            </li>
+            <li>
+              <span>Vanilla HTML, CSS, JS - for creating the web page</span>
+            </li>
+          </ul>
         </div>
-      </section>
-    </div>
-    <script>
-      hljs.highlightAll();
-      function toggleMenu() {
-        const menu = document.querySelector(".nav-menu");
-        menu.classList.toggle("show");
-      }
-    </script>
-    <script src="script.js"></script>
-  </body>
+      </div>
+    </section>
+  </div>
+  <script>
+    hljs.highlightAll();
+    function toggleMenu() {
+      const menu = document.querySelector(".nav-menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+
 </html>
