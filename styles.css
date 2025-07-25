@@ -513,6 +513,7 @@ input[type="radio"] {
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 #quiz .title {
@@ -598,8 +599,7 @@ input[type="radio"] {
   color: #fff;
 }
 
-.next-button,
-.save-button {
+.next-button {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -609,6 +609,7 @@ input[type="radio"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  align-self: flex-end; /* Now it works */
 }
 
 .next-button:hover {
