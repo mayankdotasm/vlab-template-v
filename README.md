@@ -73,7 +73,7 @@ Keeps your custom commits on top of the latest template.
  - Downloading the repo as a ZIP and copying files manually loses all Git history.
 
 - Merging future template updates becomes painful and error-prone.
-
+---
 ## Need Help?
 
 Open an [issue](https://github.com/mayankdotasm/vlab-template-v/issues) - we're here to help!
