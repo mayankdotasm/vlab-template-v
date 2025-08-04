@@ -51,7 +51,7 @@ The clean way is to treat the template as an upstream remote and regularly pull 
 #### Setup (one-time)
 ```bash
 # In your private module repo add template as upstream remote 
-git remote add upstream https://github.com/org/template-repo.git
+git remote add upstream https://github.com/mayankdotasm/vlab-template-v.git
 ```
 #### Fetch & Merge Template Changes
 ```bash
