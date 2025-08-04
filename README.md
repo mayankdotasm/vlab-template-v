@@ -46,7 +46,7 @@ or
 The clean way is to treat the template as an upstream remote and regularly pull from it.
 
 
-### Option 1: (Recommended)
+### Option 1: If you have base template updated after June 2025
 
 #### Setup (one-time)
 ```bash
@@ -69,7 +69,7 @@ git fetch upstream
 git rebase upstream/main 
 ```
 Keeps your custom commits on top of the latest template.
-### Option 2: Zip Way (Not Recommended)
+### Option 2: Zip Way if you are using older template (Not Recommended if already using template updated after June 2025)
  - Downloading the repo as a ZIP and copying files manually loses all Git history.
 
 - Merging future template updates becomes painful and error-prone.
