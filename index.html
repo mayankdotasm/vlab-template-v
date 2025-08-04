@@ -58,7 +58,7 @@
           <span>Aim</span>
         </div>
 
-        <div class="link"  title="Theory & Application" onclick="switchContent('theory')">
+        <div class="link" title="Theory & Application" onclick="switchContent('theory')">
           <img class="icon" src="images/theory_img.png" alt="THEORY" />
           <span>Theory & Application</span>
         </div>
@@ -229,10 +229,14 @@
         <!-- Quiz Questions Section (Initially Hidden) -->
         <div id="quiz-content" style="display: none;">
           <p id="question"></p>
-          <div id="choices" class="choices"></div>
-          <button id="next-btn" class="next-button" disabled>Next</button>
-          <button id="retake-btn" style="display: none">Retake Quiz</button>
+          <div id="choices" class="choices"></div> 
+          <button id="next-btn" class="quiz-button" disabled>Next</button>
+
+
           <div id="quiz-report" style="display: none"></div>
+          <button id="retake-btn" style="display: none">Retake Quiz</button>
+          <button class="quiz-button" id="see-answers-btn" style="display: none">See Answers</button>
+
         </div>
 
       </div>
