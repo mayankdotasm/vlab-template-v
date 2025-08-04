@@ -14,6 +14,7 @@ body {
   background-color: rgba(244, 240, 240, 0.622);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 /* Header styles */
@@ -30,15 +31,17 @@ body {
   left: 0;
   width: 100%;
   height: 10vh;
+  max-height: 120px;
   z-index: 1000;
-
+  min-height: 40px;
 }
 
 .logo img {
+  min-width: 40px;
   width: 9vh;
+  max-width: 100px;
   height: auto;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .vlab {
@@ -112,7 +115,7 @@ body {
 .navigation-wrapper {
   width: 100%;
   z-index: 900;
-  min-height: 150px;
+  min-height: 120px;
   /* Reserve minimum space for navigation */
 }
 
@@ -177,12 +180,12 @@ body {
   border-radius: 50%;
   cursor: pointer;
   z-index: 1000;
-  display: flex;            
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  padding: 0;                  
+  padding: 0;
   margin: 0;
 }
 
@@ -190,7 +193,7 @@ body {
   width: 20px;
   height: 20px;
   fill: white;
-  transform: rotate(180deg);   
+  transform: rotate(180deg);
 }
 
 #backToTop:hover {
@@ -201,10 +204,12 @@ body {
 
 .navigation-wrapper {
   position: sticky;
-  top: 8vh; /* adjust for your header height */
+  top: 8vh;
+  /* adjust for your header height */
   z-index: 999;
   min-height: 150px;
 }
+
 .sticky-trigger {
   height: 50px;
   width: 100%;
@@ -215,8 +220,8 @@ body {
 .sticky-nav-wrapper .navigation {
   /* position: fixed; */
   top: 8vh;
-  left:50%;
-  transform:  scale(0.9);
+  left: 50%;
+  transform: scale(0.9);
   width: 92%;
   max-width: 1200px;
   background-color: rgba(135, 147, 150, 0.419);
@@ -225,21 +230,25 @@ body {
   backdrop-filter: blur(2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
 .sticky-nav-wrapper .navigation .link {
   height: 60px;
   width: 60px;
-  border-width: 2px; 
+  border-width: 2px;
   opacity: 0.95;
   padding: 8px;
   border-radius: 40px;
 
 }
+
 .sticky-nav-wrapper .navigation .link:hover {
   transform: scale(1.05);
 }
+
 .sticky-nav-wrapper .navigation .link img {
   height: 40px;
 }
+
 .sticky-nav-wrapper .navigation .link span {
   font-size: 0;
 }
@@ -289,28 +298,29 @@ body {
   .container .title {
     font-size: 2rem;
   }
-   .sticky-nav-wrapper .navigation {
-    left:50%;
-    transform:  scale(0.85);
+
+  .sticky-nav-wrapper .navigation {
+    left: 50%;
+    transform: scale(0.85);
     width: 100%;
     padding: 4px;
     min-width: 450px;
   }
-  
+
   .sticky-nav-wrapper .navigation .link {
-    width: 45px; 
-    height: 45px; 
+    width: 45px;
+    height: 45px;
     padding: 3px;
   }
-  
+
   .sticky-nav-wrapper .navigation .link img {
-    height: 35px; 
+    height: 35px;
   }
-  
+
   .sticky-nav-wrapper .navigation {
-    font-size: 0; 
+    font-size: 0;
   }
-  
+
   .sticky-nav-wrapper .navigation .link:hover {
     transform: scale(1.1);
   }
@@ -319,7 +329,7 @@ body {
 /* Content sections */
 .main_practical {
   padding: 15px;
-  background-color:inherit;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -328,17 +338,15 @@ body {
 
 .container {
   flex: 1;
-  width: 92%;
   max-width: 1440px;
-  min-width: calc(100vw - 8vw);
   margin: 20px auto;
   background-color: #fff;
   padding: 5vh;
   border: 1px solid #ccc;
   border-radius: 20px;
   text-align: justify;
-  /* width: calc(100vw - 9vw); */
-    min-height: 95vh; 
+  width: calc(100vw - 9vw);
+  min-height: 95vh;
 }
 
 .container .title {
@@ -352,30 +360,38 @@ body {
 /* General List Styling */
 #theory ul,
 #procedure ul,
+#practice ul,
 #theory ol,
-#procedure ol {
+#procedure ol,
+#practice ol {
   padding-left: 25px;
   margin-bottom: 20px;
-  list-style-position: inside; /* Align markers with text */
+  list-style-position: inside;
+  /* Align markers with text */
   font-size: 1rem;
   color: #333;
 }
 
 /* Unordered List */
 #theory ul,
-#procedure ul {
-  list-style-type: disc; /* Default bullet style */
+#procedure ul,
+#practice ul {
+  list-style-type: disc;
+  /* Default bullet style */
 }
 
 /* Ordered List */
 #theory ol,
-#procedure ol {
-  list-style-type: decimal; /* Numbered list */
+#procedure ol,
+#practice ol {
+  list-style-type: decimal;
+  /* Numbered list */
 }
 
 /* List Items */
 #theory li,
-#procedure li {
+#procedure li,
+#practice li {
   line-height: 1.6;
   margin-bottom: 12px;
 }
@@ -383,15 +399,18 @@ body {
 /* Nested Lists */
 #theory ul ul,
 #procedure ul ul,
+#practice ul ul,
 #theory ol ol,
-#procedure ol ol {
+#procedure ol ol #practice ol ol,
+#quiz-report ul {
   padding-left: 35px;
   font-size: 1rem;
 }
 
 /* Links Inside List Items */
 #theory li a,
-#procedure li a {
+#procedure li a,
+#practice li a {
   text-decoration: none;
   color: inherit;
 }
@@ -413,7 +432,7 @@ input[type="radio"] {
 .switch-container label {
   cursor: pointer;
   padding: 10px 20px;
-  background-color: rgb(0, 52, 65, 1);;
+  background-color: rgb(0, 52, 65, 1);
   color: #fff;
   border-radius: 5px;
   font-weight: bold;
@@ -425,10 +444,17 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
+
+}
+
+pre {
+  overflow-y: scrollwpic;
+  scrollbar-width: thin;
 }
 
 .code-block {
   display: none;
+
 }
 
 .code-block.active {
@@ -446,7 +472,9 @@ input[type="radio"] {
   border-radius: 5px;
   border: 1px solid #ddd;
   margin-bottom: 20px;
-  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+
 }
 
 .code-block {
@@ -516,12 +544,7 @@ input[type="radio"] {
 
 }
 
-#quiz .title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
+
 
 /* Instructions Section */
 #quiz-instructions {
@@ -531,7 +554,8 @@ input[type="radio"] {
   margin-bottom: 20px;
   border: 1px solid #b5d9f7;
   max-width: 500px;
-  
+  text-align: left;
+
 }
 
 #quiz-instructions h3 {
@@ -541,7 +565,7 @@ input[type="radio"] {
 }
 
 #quiz-instructions ul {
-  list-style-type:decimal;
+  list-style-type: decimal;
   padding-left: 20px;
   margin: 10px 0;
 }
@@ -556,7 +580,8 @@ input[type="radio"] {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background: rgb(0, 52, 65, 1);;
+  background: rgb(0, 52, 65, 1);
+  ;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -569,10 +594,12 @@ input[type="radio"] {
 #start-quiz-btn:hover {
   background: #00a4b3;
 }
+
 #question {
   font-size: 18px;
   margin-bottom: 10px;
   color: #444;
+  white-space: pre-line;
 }
 
 .choices {
@@ -586,6 +613,7 @@ input[type="radio"] {
 .choices .choice {
   width: 100%;
   max-width: 400px;
+
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -599,20 +627,31 @@ input[type="radio"] {
   color: #fff;
 }
 
-.next-button {
+#quiz-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* horizontally center all children */
+  justify-content: center;
+  gap: 10px;
+  /* centers horizontally */
+}
+
+.quiz-button {
+  display: inline-block;
   padding: 10px 20px;
-  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: bold;
   color: white;
-  background-color: #007bff;
+  background-color: rgb(0, 55, 61);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: flex-end; /* Now it works */
 }
 
-.next-button:hover {
+.quiz-button:hover {
   background-color: #0056b3;
 }
 
@@ -638,10 +677,18 @@ input[type="radio"] {
   background-color: #f9f9f9;
   border-radius: 5px;
   border: 1px solid #ccc;
+  text-align: left;
 }
+
+#quiz-report h3 {
+  text-align: center;
+  margin: 0 auto;
+}
+
 
 .quiz-report-question {
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .quiz-report-question p {
@@ -757,7 +804,7 @@ input[type="radio"] {
 
   .navigation-wrapper {
     min-height: 120px;
-   /* Smaller reserved space on mobile */
+    /* Smaller reserved space on mobile */
   }
 
   .navigation {
@@ -773,20 +820,19 @@ input[type="radio"] {
     height: 76px;
     border-width: 1px;
     padding: 7px;
-  border-radius: 10px;
+    border-radius: 10px;
   }
 
   .navigation .link img {
     height: 32px;
   }
-  
+
   .navigation .link span {
     font-size: 0.65rem;
     font-weight: bold;
   }
-  
+
   .container {
-    width: 100%;
     padding: 5vh;
   }
 
@@ -796,13 +842,15 @@ input[type="radio"] {
 }
 
 @media screen and (max-width: 500px) {
-  .vlab{
+  .vlab {
     font-size: 1.5rem;
   }
-   .yourvlabtitle {
+
+  .yourvlabtitle {
     padding-top: 1rem;
     font-size: 80%;
   }
+
   .practical {
     margin-left: 0px;
     margin-right: 0px;
@@ -820,7 +868,7 @@ input[type="radio"] {
   }
 
   .container {
-   padding: 3vh;
+    padding: 3vh;
     margin: 0;
     text-align: left;
     width: calc(100vw- 0vw);
@@ -831,7 +879,7 @@ input[type="radio"] {
   }
 
   .choices .choice {
-    width: 300px;
+    min-width: 200px;
     margin-left: 10px;
   }
 
@@ -844,33 +892,43 @@ input[type="radio"] {
     width: 330px;
   }
 
-  .container .title {
+  .container {
     font-size: 1rem;
   }
+
+  .title {
+    font-size: 14px;
+  }
 }
+
 /* For very small screens */
 @media (max-width: 480px) {
+
   .sticky-nav-wrapper .navigation {
-    transform: translateX(-50%) (0.8);
-    min-width: 350px;
+    transform: translateX(-50%) scale(0.8);
+    min-width: 400px;
+    margin-top: 12px;
+    position: fixed;
+
+
   }
-  
+
   .sticky-nav-wrapper .navigation .link {
-    width: 40px; 
-    height: 40px; 
+    width: 40px;
+    height: 40px;
     padding: 3;
   }
-  
+
   .sticky-nav-wrapper .navigation .link img {
-    height: 30px; 
+    height: 30px;
   }
 }
 
 @media (max-width: 340px) {
   .sticky-nav-wrapper .navigation {
 
-    transform: translateX(-50%)  scale(0.75);
+    transform: translateX(-50%) scale(0.75);
 
-    min-width: 200px;
+    min-width: 300px;
   }
 }

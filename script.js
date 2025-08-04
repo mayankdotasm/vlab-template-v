@@ -127,26 +127,28 @@ document.querySelectorAll(".copy-button").forEach((button) => {
 // Quiz Logic
 const questions = [
   {
-    question: "Q1) Which of the following is/are valid searching algorithms?",
+    question: " Q1) Which of the following is/are valid searching algorithms?",
     choices: ["Linear Search", "Bubble Sort", "Binary Search", "Quick Sort"],
-    correctAnswers: [0, 2],
+    correctAnswers: [0, 2]
   },
   {
-    question: "Q2) What is/are the time complexity of linear search?",
+    question: " Q2) What is/are the time complexity of linear search?",
     choices: ["O(log n)", "O(n)", "O(n^2)", "O(1)"],
-    correctAnswers: [1],
+    correctAnswers: [1]
   },
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
 let userAnswers = [];
-
 const questionElement = document.getElementById("question");
 const choicesContainer = document.getElementById("choices");
 const nextButton = document.getElementById("next-btn");
 const retakeButton = document.getElementById("retake-btn");
+const seeAnswersButton = document.getElementById("see-answers-btn");
 const quizReport = document.getElementById("quiz-report");
+
+seeAnswersButton.addEventListener("click", displayCorrectAnswers);
 
 function showQuestion() {
   let currentQuestion = questions[currentQuestionIndex];
@@ -165,6 +167,7 @@ function showQuestion() {
   nextButton.disabled = true; // Disable Next until an answer is selected
   nextButton.style.display = "block";
   retakeButton.style.display = "none";
+  seeAnswersButton.style.display = "none";
 }
 
 function toggleSelection(selectedIndex) {
@@ -215,10 +218,11 @@ function arraysEqual(a, b) {
 }
 
 function showResults() {
-  questionElement.textContent = `Quiz Completed! Your Score: ${score} / ${questions.length}`;
+  questionElement.textContent = `Quiz Completed! \r\n Your Score: ${score} / ${questions.length}`;
   choicesContainer.innerHTML = "";
   nextButton.style.display = "none";
   retakeButton.style.display = "block";
+  seeAnswersButton.style.display = "block";
   displayQuizReport();
 }
 
@@ -252,6 +256,32 @@ function displayQuizReport() {
     questionDiv.appendChild(choicesList);
     quizReport.appendChild(questionDiv);
   });
+}
+
+function displayCorrectAnswers() {
+  quizReport.innerHTML = "<h3>Correct Answers</h3>";
+
+  questions.forEach((q) => {
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("quiz-correct-answers");
+
+    const questionText = document.createElement("p");
+    questionText.textContent = q.question;
+    questionDiv.appendChild(questionText);
+
+    const correctList = document.createElement("ul");
+    q.correctAnswers.forEach((i) => {
+      const li = document.createElement("li");
+      li.textContent = q.choices[i];
+      li.style.color = "green";
+      correctList.appendChild(li);
+    });
+
+    questionDiv.appendChild(correctList);
+    quizReport.appendChild(questionDiv);
+  });
+
+  seeAnswersButton.style.display = "none";
 }
 
 retakeButton.addEventListener("click", () => {
