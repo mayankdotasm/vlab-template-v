@@ -3,7 +3,7 @@
 This repository provides the **base structure** for creating new modules- V-Labs.  
 Your contributions help ensure consistency, reliability, and ease of use across all projects.
 
----
+
 
 ## How You Can Contribute
 
@@ -30,14 +30,13 @@ If you find a bug or something missing in the template:
 ![GitHub Issues](https://res.cloudinary.com/drnjjbg2a/image/upload/v1754336445/bdfbacca-8ba4-4698-9c41-5e0afa960e3b.png)  
 ![Good Issue Description Example](https://res.cloudinary.com/drnjjbg2a/image/upload/v1754334330/eafdf853-f879-42e2-aaeb-62090c954bcf.png)
 
----
 
 ## 🔧 Fixing Template Issues (Code Contributions)
 
 1. **Fork** this repository to your GitHub account.  
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/mayankdotasm/vlab-template-v.git
+   git clone https://github.com/<your-username>/<template-repo>.git
    ```
 
 3. Create a branch for your fix:
@@ -79,7 +78,6 @@ Option 2: Zip Download (Not Recommended)
 
 _Zip downloading loses Git history and makes future updates harder._
 
----
 
 ## Contribution Guidelines
 - Keep scope focused: Fix or enhance the template only.
