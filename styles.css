@@ -534,8 +534,8 @@ pre {
 
 /* Quiz */
 #quiz {
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   border-radius: 10px;
   padding: 20px;
@@ -548,6 +548,8 @@ pre {
 
 /* Instructions Section */
 #quiz-instructions {
+  max-width: 500px;
+  margin: 0 auto;  /* Ensures horizontal centering if not using flex */
   background: #e8f5ff;
   padding: 15px;
   border-radius: 8px;
